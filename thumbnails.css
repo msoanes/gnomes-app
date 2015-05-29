@@ -16,7 +16,7 @@ div.thumbnails {
   margin: 0;
 }
 
-div.gutter {
+div.gnome {
   height: 20%;
   position: relative;
 }
@@ -41,14 +41,14 @@ a.nav:active {
   color: red;
 }
 
-div.gutter-images {
+div.gnome-images {
   height: 100%;
   width: 90%;
   position: relative;
   left: 5%;
 }
 
-div.gutter-images > img {
+div.gnome-images > img {
   width: 20%;
   height: 100%;
   display: block;

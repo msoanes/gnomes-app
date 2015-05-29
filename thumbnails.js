@@ -1,40 +1,13 @@
 $.Thumbnails = function(el) {
   this.$el = $(el);
-  this.$gutterImages = this.$el.find('.gutter-images');
-  this.$images = this.$gutterImages.children();
+  this.$gnomeImages = this.$el.find('.gnome-images');
+  this.$images = this.$gnomeImages.children();
   this.$activeImg = this.$images.eq(0);
-  this.gutterIdx = 0;
+  this.gnomeIdx = 0;
 
   this.activate(this.$activeImg);
-  this.fillGutterImages();
-
-  this.$gutterImages.on('click', this.pickImage.bind(this));
-  this.$gutterImages.on('mouseenter', 'img', this.showTempImage.bind(this));
-  this.$gutterImages.on('mouseleave', 'img', this.hideTempImage.bind(this));
-
-  this.$el.find('.nav').eq(0).on('click', function() {
-    if (this.gutterIdx > 0) {
-      this.gutterIdx = this.gutterIdx - 1;
-    }
-    this.fillGutterImages();
-  }.bind(this));
-
-  this.$el.find('.nav').eq(-1).on('click', function() {
-    if (this.gutterIdx < this.$images.length - 5) {
-      this.gutterIdx = this.gutterIdx + 1;
-    }
-    this.fillGutterImages();
-  }.bind(this));
 
   setInterval(this.randomImage.bind(this), Math.floor(Math.random() * 100 + 50));
-};
-
-$.Thumbnails.prototype.fillGutterImages = function () {
-  this.$gutterImages.html('');
-  var thumbnails = this;
-  this.$images.slice(this.gutterIdx, this.gutterIdx + 5).each(function () {
-    thumbnails.$gutterImages.append(this);
-  });
 };
 
 $.Thumbnails.prototype.randomImage = function () {
@@ -53,14 +26,6 @@ $.Thumbnails.prototype.activate = function($img) {
 
 $.Thumbnails.prototype.pickImage = function(event) {
   this.$activeImg = $(event.target);
-  this.activate(this.$activeImg);
-};
-
-$.Thumbnails.prototype.showTempImage = function(event) {
-  this.activate($(event.target));
-};
-
-$.Thumbnails.prototype.hideTempImage = function(event) {
   this.activate(this.$activeImg);
 };
 
