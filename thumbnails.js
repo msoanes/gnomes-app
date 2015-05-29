@@ -7,7 +7,7 @@ $.Thumbnails = function(el) {
 
   this.activate(this.$activeImg);
 
-  setInterval(this.randomImage.bind(this), Math.floor(Math.random() * 100 + 50));
+  this.randomImage();
 };
 
 $.Thumbnails.prototype.randomImage = function () {
@@ -18,6 +18,7 @@ $.Thumbnails.prototype.randomImage = function () {
   }
   this.$activeImg = this.$images.eq(activeImgIdx);
   this.activate(this.$activeImg);
+  setTimeout(this.randomImage.bind(this), Math.floor(Math.random() * 300 + 50));
 };
 
 $.Thumbnails.prototype.activate = function($img) {
