@@ -3,6 +3,7 @@
   clear: both;
   display: block;
 }
+
 body, html {
   height: 100%;
   margin: 0;
@@ -24,14 +25,12 @@ a.nav {
   text-decoration: none;
   color: hotpink;
   font-size: 36px;
-  /*height: 100%;*/
   text-align: center;
   width: 5%;
   position: absolute;
   top: 50%;
   left: 0%;
   transform: translateY(-50%);
-  /*background: hotpink;*/
 }
 
 a.nav:last-child {
